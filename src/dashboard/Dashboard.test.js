@@ -36,3 +36,11 @@ test('shows the controls and display', () => {
   getByTestId(/display-box-render/i);
 });
 // there has to be a better way with out endless IF/ELSE based on snapshots???
+
+
+test('displays if gate is open/closed and if it is locked/unlocked', () => {
+  const { getByText } = render(<Dashboard />);
+
+  getByText(/unlocked/i || /locked/i);
+  getByText(/open/i || /closed/i);
+});
