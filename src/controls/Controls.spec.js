@@ -18,3 +18,11 @@ test('provide buttons to toggle the closed and locked states.', () => {
   //getByText(/open/i);
 });
 MAKES MORE SENCE TO DO FROM DISPAY*/
+
+
+test('the closed toggle button is disabled if the gate is locked', () => {
+  let locked = true;
+  const { getByText } = render(<Controls />);
+  expect(getByText(/open gate/i).closest('button')).toHaveAttribute('disabled');
+});
+//can do this from Diaplsy where I can set the state value or simulate click... 
