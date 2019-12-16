@@ -26,3 +26,14 @@ test('when locked or closed use the red-led class', () => {
 
   expect(container.firstChild["red-led"])
 });
+// this is a bad test as it is implied rather than explisit logic
+
+
+test('when unlocked or open use the green-led class', () => {
+  Display.defaultProps.closed = false;
+  Display.defaultProps.locked = false;
+  const { container, getByText } = render(<Display />)
+
+  getByText(/unlocked/i || /open/i );
+  expect(container.firstChild["green-led"])
+});
