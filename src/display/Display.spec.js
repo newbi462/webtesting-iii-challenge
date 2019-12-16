@@ -11,3 +11,10 @@ test('displays Closed if the closed prop is true and Open if otherwise', () => {
 
   getByText(/closed/i);
 });
+
+test('displays Locked if the locked prop is true and Unlocked if otherwise', () => {
+  Display.defaultProps.locked = true;
+  const { getByText } = render(<Display />);
+
+  getByText(/locked/i);
+});
