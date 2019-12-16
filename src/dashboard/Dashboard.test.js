@@ -27,3 +27,12 @@ test('cannot be closed or opened if it is locked', () => {
   getByText(/closed/i);
 });
 //As it DEFULETS TO UNLOCKED how would you test cant be closed while locked from a user stand point?
+
+
+test('shows the controls and display', () => {
+  const { getByTestId } = render(<Dashboard />);
+
+  getByTestId(/controls-box-render/i);
+  getByTestId(/display-box-render/i);
+});
+// there has to be a better way with out endless IF/ELSE based on snapshots???
