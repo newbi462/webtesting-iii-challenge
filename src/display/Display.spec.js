@@ -18,3 +18,11 @@ test('displays Locked if the locked prop is true and Unlocked if otherwise', () 
 
   getByText(/locked/i);
 });
+
+test('when locked or closed use the red-led class', () => {
+  Display.defaultProps.closed = true;
+  Display.defaultProps.locked = true;
+  const { container } = render(<Display />)
+
+  expect(container.firstChild["red-led"])
+});
