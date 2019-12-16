@@ -46,3 +46,31 @@ test('displays if gate is open/closed and if it is locked/unlocked', () => {
   getByText(/unlocked/i || /locked/i);
   getByText(/open/i || /closed/i);
 });
+
+
+
+test('provide buttons to toggle the closed and locked states.', () => {
+  const { getByText } = render(<Dashboard />);
+
+  getByText(/open/i);
+  const closeButton = getByText(/close gate/i);
+  fireEvent.click(closeButton);
+  getByText(/closed/i);
+
+
+  getByText(/unlocked/i);
+  const lockButton = getByText(/lock gate/i);
+  fireEvent.click(lockButton);
+  getByText(/locked/i);
+  const unlockButton = getByText(/unlock gate/i);
+  fireEvent.click(unlockButton);
+  getByText(/unlocked/i);
+
+
+  const openButton = getByText(/open gate/i);
+  fireEvent.click(openButton);
+  getByText(/open/i);
+
+
+
+});
